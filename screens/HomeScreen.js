@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native";
 import tw from "twrnc";
@@ -7,6 +7,7 @@ import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplet
 import { GOOGLE_MAPS_APIKEY } from "@env";
 import { useDispatch } from "react-redux";
 import { setDestination, setOrigin } from "../slices/navSlice";
+import NavFavourites from "../components/NavFavourites";
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ const HomeScreen = () => {
               flex: 0,
             },
             textInput: {
-              fontSize: 20,
+              fontSize: 18,
             },
           }}
           onPress={(data, details = null) => {
@@ -49,6 +50,7 @@ const HomeScreen = () => {
           debounce={400}
         />
         <NavOptions />
+        <NavFavourites />
       </View>
     </SafeAreaView>
   );
